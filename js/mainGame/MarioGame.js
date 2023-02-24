@@ -37,7 +37,7 @@ function MarioGame() {
   var that = this;
 
   this.init = function(levelMaps, level) {
-    height = 480;
+    height = 500;
     maxWidth = 0;
     viewPort = 1280;
     tileSize = 32;
@@ -662,7 +662,7 @@ function MarioGame() {
       if (!mario.jumping && mario.grounded) {
         mario.jumping = true;
         mario.grounded = false;
-        mario.velY = -(mario.speed / 2 + 5.5);
+        mario.velY = -(mario.speed / 2 + 6);
 
         // mario sprite position
         if (mario.frame == 0 || mario.frame == 1) {
