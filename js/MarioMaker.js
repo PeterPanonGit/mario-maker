@@ -16,7 +16,7 @@ var MarioMaker = (function() {
 
     var editorStarted = 0;
 
-    var backToMenuBtn;
+    //var backToMenuBtn;
 
     //instances
     var marioGame;
@@ -37,19 +37,19 @@ var MarioMaker = (function() {
       editorButton = view.create('button');
       startGameButton = view.create('button');
       createdLevelsButton = view.create('div');
-      backToMenuBtn = view.create('button');
+      //backToMenuBtn = view.create('button');
 
       view.addClass(btnWrapper, 'btn-wrapper');
       view.addClass(startScreen, 'start-screen');
       view.addClass(editorButton, 'editor-btn');
       view.addClass(startGameButton, 'start-btn');
       view.addClass(createdLevelsButton, 'created-btn');
-      view.addClass(backToMenuBtn, 'back-btn');
+      //view.addClass(backToMenuBtn, 'back-btn');
 
       view.append(startScreen, editorButton);
       view.append(startScreen, startGameButton);
       view.append(startScreen, createdLevelsButton);
-      view.append(btnWrapper, backToMenuBtn);
+      //view.append(btnWrapper, backToMenuBtn);
       view.append(mainWrapper, startScreen);
       view.append(mainWrapper, btnWrapper);
 
@@ -57,7 +57,7 @@ var MarioMaker = (function() {
 
       createdLevelsButton.onclick = that.startCreatedLevels;
 
-      backToMenuBtn.onclick = that.backToMenu;
+      //backToMenuBtn.onclick = that.backToMenu;
 
       startGameButton.onclick = function() {
         map = that.loadMainGameMap();
@@ -78,7 +78,7 @@ var MarioMaker = (function() {
     };
 
     this.startGame = function(levelMap) {
-      view.style(backToMenuBtn, { display: 'block' });
+      //view.style(backToMenuBtn, { display: 'block' });
 
       marioGame.clearInstances();
       marioGame.init(levelMap, 1); //initiate level 1 of map
@@ -89,7 +89,7 @@ var MarioMaker = (function() {
     };
 
     this.startEditor = function() {
-      view.style(backToMenuBtn, { display: 'block' });
+      //view.style(backToMenuBtn, { display: 'block' });
 
       if (editorStarted == 0) {
         //instantiate only once, after that just show and hide the editor screen
@@ -105,7 +105,7 @@ var MarioMaker = (function() {
     };
 
     this.startCreatedLevels = function() {
-      view.style(backToMenuBtn, { display: 'block' });
+      //view.style(backToMenuBtn, { display: 'block' });
 
       createdLevels.init();
       that.hideMainMenu();
@@ -123,7 +123,7 @@ var MarioMaker = (function() {
       createdLevels.removeCreatedLevelsScreen();
       that.showMainMenu();
 
-      view.style(backToMenuBtn, { display: 'none' });
+      //view.style(backToMenuBtn, { display: 'none' });
     };
 
     this.hideMainMenu = function() {
