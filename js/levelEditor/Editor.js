@@ -270,7 +270,7 @@ function Editor() {
 
   this.saveMap = function() {
     var storage = new Storage();
-    var levelCounter = storage.getItem('levelCounter') || 0;
+    var levelCounter = storage.getItem('savedLevel00') || 0;
 
     that.generateMap();
 
@@ -282,9 +282,9 @@ function Editor() {
     } else {
       levelName = 'savedLevel' + levelCounter;
     }
-
+    alert(levelName + ": " + String(map));
+    storage.setItem('savedLevel00', levelCounter);
     storage.setItem(levelName, map);
-    storage.setItem('levelCounter', levelCounter);
 
     console.log(storage.getItem(levelName)); //for copying the generated map if required
   };

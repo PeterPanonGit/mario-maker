@@ -26,11 +26,17 @@ function CreatedLevels() {
 
   this.showLevels = function() {
     var totalStoredLevels = storage.getLength();
+    alert(localStorage.key(0) + "," + localStorage.key(1));
 
     if (totalStoredLevels != 0) {
       for (var i = 1; i < totalStoredLevels; i++) {
         var levelButton = view.create('div');
-        var levelName = storage.getItemName(i);
+        var levelName = null;
+        if (i < 10) {
+          levelName = 'savedLevel' + '0' + String(i);
+        } else {
+          levelName = 'savedLevel' + String(i);
+        }
 
         view.setHTML(levelButton, levelName);
         view.addClass(levelButton, 'level-btn');
@@ -38,7 +44,7 @@ function CreatedLevels() {
 
         levelButton.onclick = (function(i) {
           return function() {
-            that.startLevel(i);
+            that.startLevel(levelName);
             that.removeCreatedLevelsScreen();
           };
         })(i);
@@ -59,9 +65,8 @@ function CreatedLevels() {
     that.init();
   };
 
-  this.startLevel = function(i) {
+  this.startLevel = function(levelName) {
     var marioMakerInstance = MarioMaker.getInstance();
-    var levelName = storage.getItemName(i);
     var level = storage.getItem(levelName);
     var map = { 1: level }; //always only one level in saved maps.
 
